@@ -120,6 +120,8 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.job.grade = PlayerData.job.grade or {}
     PlayerData.job.grade.name = PlayerData.job.grade.name or 'Freelancer'
     PlayerData.job.grade.level = PlayerData.job.grade.level or 0
+    PlayerData.job.accreds = PlayerData.job.accreds or {}
+
     -- Gang
     if PlayerData.gang and PlayerData.gang.name and not QBCore.Shared.Gangs[PlayerData.gang.name] then PlayerData.gang = nil end
     PlayerData.gang = PlayerData.gang or {}
@@ -167,6 +169,8 @@ function QBCore.Player.CreatePlayer(PlayerData)
         self.PlayerData.job.name = job
         self.PlayerData.job.label = QBCore.Shared.Jobs[job].label
         self.PlayerData.job.onduty = QBCore.Shared.Jobs[job].defaultDuty
+        self.PlayerData.job.accreds = {}
+
         if QBCore.Shared.Jobs[job].grades[grade] then
             local jobgrade = QBCore.Shared.Jobs[job].grades[grade]
             self.PlayerData.job.grade = {}
@@ -183,6 +187,38 @@ function QBCore.Player.CreatePlayer(PlayerData)
         end
         self.Functions.UpdatePlayerData()
         TriggerEvent('QBCore:Server:OnJobUpdate', self.PlayerData.source, self.PlayerData.job)
+        TriggerClientEvent('QBCore:Client:OnJobUpdate', self.PlayerData.source, self.PlayerData.job)
+        return true
+    end
+
+    function self.Functions.SetAccred(accred, grade)
+        local accred = accred:lower()
+        local grade = grade or 0
+
+        if not self.PlayerData.job.name then return false end
+        local job = self.PlayerData.job.name
+        if not QBCore.Shared.Jobs[job] or not QBCore.Shared.Jobs[job].accreds[accred] then return false end
+
+        self.PlayerData.job.accreds[accred] = {}
+        if grade < 1 then
+            self.PlayerData.job.accreds[accred] = null
+            return true
+        end
+
+        self.PlayerData.job.accreds[accred].label = QBCore.Shared.Jobs[job].accreds[accred].label
+
+        if QBCore.Shared.Jobs[job].accreds[accred].grades[grade] then
+            local jobgrade = QBCore.Shared.Jobs[job].accreds[accred].grades[grade]
+            self.PlayerData.job.accreds[accred].grade = {}
+            self.PlayerData.job.accreds[accred].grade.name = jobgrade
+            self.PlayerData.job.accreds[accred].grade.level = tonumber(grade)
+        else
+            self.PlayerData.job.accreds[accred].grade = {}
+            self.PlayerData.job.accreds[accred].grade.name = 'No Grades'
+            self.PlayerData.job.accreds[accred].grade.level = 0
+        end
+
+        self.Functions.UpdatePlayerData()
         TriggerClientEvent('QBCore:Client:OnJobUpdate', self.PlayerData.source, self.PlayerData.job)
         return true
     end
@@ -215,6 +251,11 @@ function QBCore.Player.CreatePlayer(PlayerData)
         self.Functions.UpdatePlayerData()
     end
 
+    self.Functions.ChangeIban = function(iban)
+    	  self.PlayerData.charinfo.account = iban
+    	  self.Functions.UpdatePlayerData()
+    end
+
     function self.Functions.SetMetaData(meta, val)
         if not meta then return end
         meta = meta:lower()
@@ -235,14 +276,19 @@ function QBCore.Player.CreatePlayer(PlayerData)
         amount = tonumber(amount)
         if amount < 0 then return end
         if not self.PlayerData.money[moneytype] then return false end
-        self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] + amount
+        if (moneytype == "cash") then 
+            self.Functions.AddItem('cash', amount)
+            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'add')
+        else
+            self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] + amount
+            TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, false)
+        end
         self.Functions.UpdatePlayerData()
         if amount > 100000 then
             TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'AddMoney', 'lightgreen', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') added, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype], true)
         else
             TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'AddMoney', 'lightgreen', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') added, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype])
         end
-        TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, false)
         return true
     end
 
@@ -259,14 +305,19 @@ function QBCore.Player.CreatePlayer(PlayerData)
                 end
             end
         end
-        self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] - amount
+        if (moneytype == "cash") then 
+            self.Functions.RemoveItem('cash', amount)
+            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'remove')
+        else
+            self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] - amount
+            TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, true)
+        end
         self.Functions.UpdatePlayerData()
         if amount > 100000 then
             TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'RemoveMoney', 'red', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') removed, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype], true)
         else
             TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'RemoveMoney', 'red', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') removed, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype])
         end
-        TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, true)
         if moneytype == 'bank' then
             TriggerClientEvent('qb-phone:client:RemoveBankMoney', self.PlayerData.source, amount)
         end
@@ -274,6 +325,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
     end
 
     function self.Functions.SetMoney(moneytype, amount, reason)
+        if (true) then return false end
         reason = reason or 'unknown'
         moneytype = moneytype:lower()
         amount = tonumber(amount)
@@ -288,6 +340,14 @@ function QBCore.Player.CreatePlayer(PlayerData)
     function self.Functions.GetMoney(moneytype)
         if not moneytype then return false end
         moneytype = moneytype:lower()
+        if (moneytype == "cash") then 
+            local items = self.Functions.GetItemsByName("cash")
+            local amount = 0
+            for _, slot in pairs(items) do
+                amount = amount + slot.amount
+            end
+            return amount
+        end
         return self.PlayerData.money[moneytype]
     end
 
@@ -474,6 +534,7 @@ local playertables = { -- Add tables as needed
     { table = 'phone_invoices' },
     { table = 'phone_messages' },
     { table = 'playerskins' },
+    { table = 'player_boats' },
     { table = 'player_contacts' },
     { table = 'player_houses' },
     { table = 'player_mails' },
