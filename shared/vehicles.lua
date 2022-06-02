@@ -871,6 +871,15 @@ QBShared.Vehicles = {
 		['shop'] = 'pdm',
 	},
 	--- Muscle
+	['18charger'] = {
+		['name'] = 'Dodge Charger 2018 Police',
+		['brand'] = 'Dodge',
+		['model'] = 'Charger 2018',
+		['price'] = 4000,
+		['category'] = 'muscle',
+		['hash'] = `18charger`,
+		['shop'] = 'pdm',
+	},
 	['blade'] = {
 		['name'] = 'Blade',
 		['brand'] = 'Vapid',
