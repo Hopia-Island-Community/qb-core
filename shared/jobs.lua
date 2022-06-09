@@ -85,7 +85,7 @@ QBShared.Jobs = {
             },
 			['14'] = {
                 name = 'Commandant',
-		isboss = true,
+		        isboss = true,
                 payment = 300
             },
         },
@@ -219,23 +219,23 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Interne',
                 payment = 50
             },
 			['1'] = {
-                name = 'Novice',
+                name = 'Médecin',
                 payment = 75
             },
 			['2'] = {
-                name = 'Experienced',
+                name = 'Médecin Spécialiste',
                 payment = 100
             },
 			['3'] = {
-                name = 'Advanced',
+                name = 'Chef de service',
                 payment = 125
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'Directeur',
 				isboss = true,
                 payment = 150
             },
@@ -328,36 +328,6 @@ QBShared.Jobs = {
                 payment = 50
             },
         },
-	},
-	['tuner'] = {
-        label = 'Tuner Autos',
-        defaultDuty = false,
-        grades = {
-            ['0'] = {
-                name = 'Recruit',
-                payment = 500
-            },
-            ['1'] = {
-                name = 'Mechanic',
-                payment = 750
-            },
-            ['2'] = {
-                name = 'Manager',
-                isboss = true,
-                payment = 1000
-
-            },
-            ['3'] = {
-                name = 'Co-Owner',
-                isboss = true,
-                payment = 1250
-            },
-            ['4'] = {
-                name = 'Owner',
-                isboss = true,
-                payment = 1500
-            },
-		},
 	},
     ['lsfd'] = {
         label = 'lsfd',
