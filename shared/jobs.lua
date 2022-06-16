@@ -13,7 +13,7 @@ QBShared.Jobs = {
         },
 	},
 	['police'] = {
-		label = 'Hopia Police Department',
+		label = 'Département de Police Hopia',
 		defaultDuty = false,
 		offDutyPay = false,
         accreds = {
@@ -91,7 +91,7 @@ QBShared.Jobs = {
         },
 	},
 	['ambulance'] = {
-		label = 'EMS',
+		label = 'Département de médecine Hopia',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -119,7 +119,7 @@ QBShared.Jobs = {
         },
 	},
 	['realestate'] = {
-		label = 'Real Estate',
+		label = 'Agence Immobilière',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -186,7 +186,7 @@ QBShared.Jobs = {
 		},
 	},
 	['cardealer'] = {
-		label = 'Vehicle Dealer',
+		label = 'Concessionnaire',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -214,7 +214,7 @@ QBShared.Jobs = {
         },
 	},
 	['mechanic'] = {
-		label = 'Mechanic',
+		label = 'Mécanicien',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -242,12 +242,95 @@ QBShared.Jobs = {
         },
 	},
 	['judge'] = {
-		label = 'Honorary',
+		label = 'Département de la Justice Hopia',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Judge',
+                name = 'Avocat',
+                payment = 100
+            },
+            ['1'] = {
+                name = 'Secrétaire DPJ',
+                payment = 100
+            },
+            ['2'] = {
+                name = 'Maître du Barreau',
+                payment = 100
+            },
+            ['3'] = {
+                name = 'Substitut du Procureur',
+                payment = 100
+            },
+            ['4'] = {
+                name = 'Procureur',
+                payment = 100
+            },
+            ['5'] = {
+                name = 'Procureur Général',
+                payment = 100
+            },
+            ['6'] = {
+                name = 'Juge',
+                payment = 100
+            },
+            ['7'] = {
+                name = 'Juge suprême',
+                payment = 100
+            },
+        },
+	},
+    ['gouv'] = {
+		label = 'Gouvernement Hopia',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+            ['0'] = {
+                name = 'Avocat',
+                payment = 100
+            },
+            ['1'] = {
+                name = 'Agent de Sécurité',
+                payment = 100
+            },
+            ['2'] = {
+                name = 'Responsable Sécurité',
+                payment = 100
+            },
+            ['3'] = {
+                name = 'Percepteur',
+                payment = 100
+            },
+            ['4'] = {
+                name = 'Percepteur Général',
+                payment = 100
+            },
+            ['5'] = {
+                name = 'Ministre de la Culture',
+                payment = 100
+            },
+            ['6'] = {
+                name = 'Ministre de l\'Intérieur',
+                payment = 100
+            },
+            ['7'] = {
+                name = 'Ministre de l\'Economie',
+                payment = 100
+            },
+            ['8'] = {
+                name = 'Directeur de Cabinet',
+                payment = 100
+            },
+            ['9'] = {
+                name = 'Conseiller Populaire',
+                payment = 100
+            },
+            ['10'] = {
+                name = 'Vice-Président',
+                payment = 100
+            },
+            ['11'] = {
+                name = 'Président',
                 payment = 100
             },
         },
