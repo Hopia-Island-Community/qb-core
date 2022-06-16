@@ -219,18 +219,22 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
+                name = 'Apprenti',
+                payment = 50
+            },
+            ['1'] = {
                 name = 'Mécanicien',
                 payment = 50
             },
-			['1'] = {
-                name = 'Mécanicien sup',
+			['2'] = {
+                name = 'Mécanicien Chef',
                 payment = 75
             },
-			['2'] = {
+			['3'] = {
                 name = 'Co-PDG',
                 payment = 125
             },
-			['3'] = {
+			['4'] = {
                 name = 'PDG',
 				isboss = true,
                 payment = 150
@@ -238,7 +242,7 @@ QBShared.Jobs = {
         },
 	},
 	['judge'] = {
-		label = 'Département de la Justice Hopia',
+		label = 'Département de la Justice',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
