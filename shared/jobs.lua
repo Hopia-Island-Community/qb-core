@@ -96,23 +96,23 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Interne',
                 payment = 50
             },
 			['1'] = {
-                name = 'Paramedic',
+                name = 'Médecin',
                 payment = 75
             },
 			['2'] = {
-                name = 'Doctor',
+                name = 'Médecin Spécialiste',
                 payment = 100
             },
 			['3'] = {
-                name = 'Surgeon',
+                name = 'Chef de service',
                 payment = 125
             },
 			['4'] = {
-                name = 'Chief',
+                name = 'Directeur',
 				isboss = true,
                 payment = 150
             },
@@ -219,23 +219,19 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Interne',
+                name = 'Mécanicien',
                 payment = 50
             },
 			['1'] = {
-                name = 'Médecin',
+                name = 'Mécanicien sup',
                 payment = 75
             },
 			['2'] = {
-                name = 'Médecin Spécialiste',
-                payment = 100
-            },
-			['3'] = {
-                name = 'Chef de service',
+                name = 'Co-PDG',
                 payment = 125
             },
-			['4'] = {
-                name = 'Directeur',
+			['3'] = {
+                name = 'PDG',
 				isboss = true,
                 payment = 150
             },
