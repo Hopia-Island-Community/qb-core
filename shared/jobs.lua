@@ -241,7 +241,7 @@ QBShared.Jobs = {
             },
         },
 	},
-	['judge'] = {
+	['justice'] = {
 		label = 'Département de la Justice',
 		defaultDuty = false,
 		offDutyPay = false,
