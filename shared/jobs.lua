@@ -264,14 +264,17 @@ QBShared.Jobs = {
             },
             ['5'] = {
                 name = 'Procureur Général',
+                isboss = true,
                 payment = 3000
             },
             ['6'] = {
                 name = 'Juge',
+                isboss = true,
                 payment = 3250
             },
             ['7'] = {
                 name = 'Juge suprême',
+                isboss = true,
                 payment = 3500
             },
         },
@@ -323,10 +326,12 @@ QBShared.Jobs = {
             },
             ['10'] = {
                 name = 'Vice-Président',
+                isboss = true,
                 payment = 3500
             },
             ['11'] = {
                 name = 'Président',
+                isboss = true,
                 payment = 4000
             },
         },
