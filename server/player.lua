@@ -276,7 +276,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
         amount = tonumber(amount)
         if amount < 0 then return end
         if not self.PlayerData.money[moneytype] then return false end
-        if (moneytype == "cash") then 
+        if (moneytype == "cash") then
             self.Functions.AddItem('cash', amount)
             TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'add')
         else
@@ -305,7 +305,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
                 end
             end
         end
-        if (moneytype == "cash") then 
+        if (moneytype == "cash") then
             self.Functions.RemoveItem('cash', amount)
             TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'remove')
         else
@@ -340,7 +340,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
     function self.Functions.GetMoney(moneytype)
         if not moneytype then return false end
         moneytype = moneytype:lower()
-        if (moneytype == "cash") then 
+        if (moneytype == "cash") then
             local items = self.Functions.GetItemsByName("cash")
             local amount = 0
             for _, slot in pairs(items) do
@@ -534,7 +534,7 @@ local playertables = { -- Add tables as needed
     { table = 'phone_invoices' },
     { table = 'phone_messages' },
     { table = 'playerskins' },
-    { table = 'player_boats' },
+    --{ table = 'player_boats' },
     { table = 'player_contacts' },
     { table = 'player_houses' },
     { table = 'player_mails' },
