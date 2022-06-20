@@ -469,6 +469,9 @@ QBShared.Items = {
     ['spray'] 				         = {['name'] = 'spray', 				    ['label'] = 'Spray', 		            ['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Spray de peinture'},
     ['spray_remover'] 				 = {['name'] = 'spray_remover', 			['label'] = 'Nettoyant pour spray', 	['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray_remover.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Nettoyant pour spray'},
 
+	--Jakers-SuitCase
+	['suitcase'] 				 	 = {['name'] = 'suitcase', 			  	  		['label'] = 'SuitCase', 				['weight'] = 2000, 		['type'] = 'item', 		['image'] = 'suitcase.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Spare Clothes'},
+
 
     -- Material
 	['plastic'] 					 = {['name'] = 'plastic', 			  	  	  	['label'] = 'Plastique', 				['weight'] = 100, 		['type'] = 'item', 		['image'] = 'plastic.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'RECYCLE! - Greta Thunberg 2019'},
