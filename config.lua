@@ -10,6 +10,8 @@ QBConfig.Money.MoneyTypes = {['cash'] = 500, ['bank'] = 5000, ['crypto'] = 0} --
 QBConfig.Money.DontAllowMinus = {'cash', 'crypto'} -- Money that is not allowed going in minus
 QBConfig.Money.PayCheckTimeOut = 30 -- The time in minutes that it will give the paycheck
 QBConfig.Money.PayCheckSociety = false -- If true paycheck will come from the society account that the player is employed at, requires qb-bossmenu
+QBConfig.Money.UseInventory = true
+QBConfig.Money.item = "cash"
 
 QBConfig.Player = {}
 QBConfig.Player.MaxWeight = 120000 -- Max weight a player can carry (currently 120kg, written in grams)

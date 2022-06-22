@@ -275,11 +275,11 @@ function QBCore.Player.CreatePlayer(PlayerData)
         moneytype = moneytype:lower()
         amount = tonumber(amount)
         if amount < 0 then return end
-        if not self.PlayerData.money[moneytype] then return false end
-        if (moneytype == "cash") then
-            self.Functions.AddItem('cash', amount)
-            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'add')
+        if (QBConfig.Money.useInventory && moneytype == "cash") then
+            self.Functions.AddItem(QBConfig.Money.item, amount)
+            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'add')
         else
+            if not self.PlayerData.money[moneytype] then return false end
             self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] + amount
             TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, false)
         end
@@ -297,18 +297,22 @@ function QBCore.Player.CreatePlayer(PlayerData)
         moneytype = moneytype:lower()
         amount = tonumber(amount)
         if amount < 0 then return end
+
+        if (self.Functions.getMoney(moneytype)) - amount < 0 then return false end
+
         if not self.PlayerData.money[moneytype] then return false end
         for _, mtype in pairs(QBCore.Config.Money.DontAllowMinus) do
             if mtype == moneytype then
-                if (self.PlayerData.money[moneytype] - amount) < 0 then
-                    return false
-                end
+                if (self.Functions.getMoney(moneytype)) - amount < 0 then return false end
             end
         end
-        if (moneytype == "cash") then
-            self.Functions.RemoveItem('cash', amount)
-            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items["cash"], 'remove')
+
+
+        if (QBConfig.Money.useInventory && moneytype == "cash") then
+            self.Functions.RemoveItem(QBConfig.Money.item, amount)
+            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'remove')
         else
+            if not self.PlayerData.money[moneytype] then return false end
             self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] - amount
             TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, true)
         end
@@ -330,17 +334,25 @@ function QBCore.Player.CreatePlayer(PlayerData)
         moneytype = moneytype:lower()
         amount = tonumber(amount)
         if amount < 0 then return false end
-        if not self.PlayerData.money[moneytype] then return false end
-        self.PlayerData.money[moneytype] = amount
+
+        if (QBConfig.Money.useInventory && moneytype == "cash") then
+            self.Functions.RemoveItem(QBConfig.Money.item, self.Functions.GetMoney(moneytype))
+            self.Functions.AddItem(QBConfig.Money.item, amount)
+            TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'set')
+        else
+            if not self.PlayerData.money[moneytype] then return false end
+            self.PlayerData.money[moneytype] = amount
+        end
+
         self.Functions.UpdatePlayerData()
-        TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'SetMoney', 'green', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') set, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype])
+        TriggerEvent('qb-log:server:CreateLog', 'playermoney', 'SetMoney', 'green', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') set, new ' .. moneytype .. ' balance: ' .. self.Functions.GetMoney(moneytype))
         return true
     end
 
     function self.Functions.GetMoney(moneytype)
         if not moneytype then return false end
         moneytype = moneytype:lower()
-        if (moneytype == "cash") then
+        if (QBConfig.Money.useInventory && moneytype == "cash") then
             local items = self.Functions.GetItemsByName("cash")
             local amount = 0
             for _, slot in pairs(items) do
