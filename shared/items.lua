@@ -200,7 +200,7 @@ QBShared.Items = {
 	["rims"] 						 = {["name"] = "rims", 						["label"] = "Jante", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "rims.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 	["livery"] 						 = {["name"] = "livery", 					["label"] = "Sticker", 				    ["weight"] = 0, 		["type"] = "item", 		["image"] = "livery.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-	["paintcan"] 					 = {["name"] = "paintcan", 					["label"] = "Peinture pour voiture", 	["weight"] = 0, 		["type"] = "item", 		["image"] = "spraycan.png", 	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["paintcan"] 					 = {["name"] = "paintcan", 					["label"] = "Peinture pour voiture", 	["weight"] = 0, 		["type"] = "item", 		["image"] = "spraycan.png", 	["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 	["tires"] 						 = {["name"] = "tires", 					["label"] = "Fumee de pneu",            ["weight"] = 0, 		["type"] = "item", 		["image"] = "tires.png", 	  		    ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 	["horn"] 						 = {["name"] = "horn", 						["label"] = "Klaxon", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "horn.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
