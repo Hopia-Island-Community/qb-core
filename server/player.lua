@@ -275,7 +275,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
         moneytype = moneytype:lower()
         amount = tonumber(amount)
         if amount < 0 then return end
-        if QBConfig.Money.useInventory and moneytype == "cash" then
+        if QBConfig.Money.UseInventory and moneytype == "cash" then
             self.Functions.AddItem(QBConfig.Money.item, amount)
             TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'add')
         else
@@ -308,7 +308,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
         end
 
 
-        if (QBConfig.Money.useInventory and moneytype == "cash") then
+        if (QBConfig.Money.UseInventory and moneytype == "cash") then
             self.Functions.RemoveItem(QBConfig.Money.item, amount)
             TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'remove')
         else
@@ -335,7 +335,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
         amount = tonumber(amount)
         if amount < 0 then return false end
 
-        if (QBConfig.Money.useInventory and moneytype == "cash") then
+        if (QBConfig.Money.UseInventory and moneytype == "cash") then
             self.Functions.RemoveItem(QBConfig.Money.item, self.Functions.GetMoney(moneytype))
             self.Functions.AddItem(QBConfig.Money.item, amount)
             TriggerClientEvent('inventory:client:ItemBox', self.PlayerData.source,  QBCore.Shared.Items[QBConfig.Money.item], 'set')
@@ -352,8 +352,8 @@ function QBCore.Player.CreatePlayer(PlayerData)
     function self.Functions.GetMoney(moneytype)
         if not moneytype then return false end
         moneytype = moneytype:lower()
-        if (QBConfig.Money.useInventory and moneytype == "cash") then
-            local items = self.Functions.GetItemsByName("cash")
+        if (QBConfig.Money.UseInventory and moneytype == "cash") then
+            local items = self.Functions.GetItemsByName(QBConfig.Money.item)
             local amount = 0
             for _, slot in pairs(items) do
                 amount = amount + slot.amount
