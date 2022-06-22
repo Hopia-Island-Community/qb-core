@@ -298,12 +298,12 @@ function QBCore.Player.CreatePlayer(PlayerData)
         amount = tonumber(amount)
         if amount < 0 then return end
 
-        if (self.Functions.getMoney(moneytype)) - amount < 0 then return false end
+        if (self.Functions.GetMoney(moneytype)) - amount < 0 then return false end
 
         if not self.PlayerData.money[moneytype] then return false end
         for _, mtype in pairs(QBCore.Config.Money.DontAllowMinus) do
             if mtype == moneytype then
-                if (self.Functions.getMoney(moneytype)) - amount < 0 then return false end
+                if (self.Functions.GetMoney(moneytype)) - amount < 0 then return false end
             end
         end
 
