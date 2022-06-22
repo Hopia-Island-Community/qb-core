@@ -240,7 +240,7 @@ QBShared.Jobs = {
 	},
 	['justice'] = {
 		label = 'Département de la Justice',
-		defaultDuty = false,
+		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
             ['0'] = {
@@ -282,7 +282,7 @@ QBShared.Jobs = {
 	},
     ['gouv'] = {
 		label = 'Gouvernement Hopia',
-		defaultDuty = false,
+		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
             ['0'] = {
