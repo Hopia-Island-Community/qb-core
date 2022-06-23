@@ -14,6 +14,7 @@ QBShared.Jobs = {
 	},
 	['police'] = {
 		label = 'Département de Police Hopia',
+        type = "leo",
 		defaultDuty = false,
 		offDutyPay = false,
         accreds = {
