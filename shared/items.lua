@@ -210,7 +210,7 @@ QBShared.Items = {
 	["horn"] 						 = {["name"] = "horn", 						["label"] = "Klaxon", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "horn.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 	["internals"] 					 = {["name"] = "internals", 				["label"] = "Décoration intérieur", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "internals.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-	["externals"] 					 = {["name"] = "externals", 				["label"] = "Décoration extérieur", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mirror.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["externals"] 					 = {["name"] = "externals", 				["label"] = "Décoration extérieure", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mirror.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 
     -- Vehicle Tools
