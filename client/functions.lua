@@ -11,12 +11,35 @@ function QBCore.Functions.GetCoords(entity)
     return vector4(GetEntityCoords(entity), GetEntityHeading(entity))
 end
 
-function QBCore.Functions.HasItem(item)
-    local p = promise.new()
-    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
-        p:resolve(result)
-    end, item)
-    return Citizen.Await(p)
+function QBCore.Functions.HasItem(items, amount)
+    local isTable = type(items) == 'table'
+	local isArray = isTable and table.type(items) == 'array' or false
+	local totalItems = #items
+    local count = 0
+    local kvIndex = 2
+	if isTable and not isArray then
+        totalItems = 0
+        for _ in pairs(items) do totalItems += 1 end
+        kvIndex = 1
+    end
+    for _, itemData in pairs(QBCore.PlayerData.items) do
+        if isTable then
+            for k, v in pairs(items) do
+                local itemKV = {k, v}
+                if itemData and itemData.name == itemKV[kvIndex] and ((not amount and not isArray and itemData.amount >= v) or (isArray and amount and itemData.amount >= amount) or (not amount and isArray)) then
+                    count += 1
+                end
+            end
+            if count == totalItems then
+                return true
+            end
+        else -- Single item as string
+            if itemData and itemData.name == items and (not amount or (amount and itemData.amount >= amount)) then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 -- Utility
@@ -117,10 +140,25 @@ function QBCore.Debug(resource, obj, depth)
     TriggerServerEvent('QBCore:DebugSomething', resource, obj, depth)
 end
 
+-- Callback Functions --
+
+-- Client Callback
+function QBCore.Functions.CreateClientCallback(name, cb)
+    QBCore.ClientCallbacks[name] = cb
+end
+
+function QBCore.Functions.TriggerClientCallback(name, cb, ...)
+    if not QBCore.ClientCallbacks[name] then return end
+    QBCore.ClientCallbacks[name](cb, ...)
+end
+
+-- Server Callback
 function QBCore.Functions.TriggerCallback(name, cb, ...)
     QBCore.ServerCallbacks[name] = cb
     TriggerServerEvent('QBCore:Server:TriggerCallback', name, ...)
 end
+
+
 
 function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
     if GetResourceState('progressbar') ~= 'started' then error('progressbar needs to be started in order for QBCore.Functions.Progressbar to work') end
@@ -186,7 +224,7 @@ function QBCore.Functions.GetClosestPed(coords, ignoreList)
     else
         coords = GetEntityCoords(ped)
     end
-    local ignoreList = ignoreList or {}
+    ignoreList = ignoreList or {}
     local peds = QBCore.Functions.GetPeds(ignoreList)
     local closestDistance = -1
     local closestPed = -1
@@ -409,14 +447,12 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
 		local SecondaryFinish = nil
 		local colorPrimary, colorSecondary = GetVehicleColours(vehicle)
         if GetIsVehiclePrimaryColourCustom(vehicle) then
-            r, g, b = GetVehicleCustomPrimaryColour(vehicle)
-			PrimaryFinish, nilfinish = GetVehicleColours(vehicle)
-            colorPrimary = { r, g, b, PrimaryFinish }
+            local r, g, b = GetVehicleCustomPrimaryColour(vehicle)
+            colorPrimary = {r, g, b}
         end
         if GetIsVehicleSecondaryColourCustom(vehicle) then
-            r, g, b = GetVehicleCustomSecondaryColour(vehicle)
-			nilfinish, SecondaryFinish = GetVehicleColours(vehicle)
-            colorSecondary = { r, g, b, SecondaryFinish }
+            local r, g, b = GetVehicleCustomSecondaryColour(vehicle)
+            colorSecondary = {r, g, b}
         end
         local extras = {}
         for extraId = 0, 12 do
@@ -549,7 +585,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
         if props.fuelLevel then SetVehicleFuelLevel(vehicle, props.fuelLevel + 0.0) end
         if props.dirtLevel then SetVehicleDirtLevel(vehicle, props.dirtLevel + 0.0) end
         if props.oilLevel then SetVehicleOilLevel(vehicle, props.oilLevel) end
-        if props.color1 then 
+        if props.color1 then
 			if type(props.color1) == "number" then SetVehicleColours(vehicle, props.color1, colorSecondary) else
 				SetVehicleCustomPrimaryColour(vehicle, props.color1[1], props.color1[2], props.color1[3])
 				SetVehicleColours(vehicle, props.color1[4], colorSecondary)
@@ -573,12 +609,19 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
                 if not smashWindow then SmashVehicleWindow(vehicle, windowIndex) end
             end
         end
+        if props.doorStatus then
+            for doorIndex, breakDoor in pairs(props.doorStatus) do
+                if breakDoor then
+                    SetVehicleDoorBroken(vehicle, tonumber(doorIndex), true)
+                end
+            end
+        end
         if props.neonEnabled then
             SetVehicleNeonLightEnabled(vehicle, 0, props.neonEnabled[1])
             SetVehicleNeonLightEnabled(vehicle, 1, props.neonEnabled[2])
             SetVehicleNeonLightEnabled(vehicle, 2, props.neonEnabled[3])
             SetVehicleNeonLightEnabled(vehicle, 3, props.neonEnabled[4])
-        end        
+        end
 		if props.neonColor then SetVehicleNeonLightsColour(vehicle, props.neonColor[1], props.neonColor[2], props.neonColor[3]) end
         if props.headlightColor then SetVehicleHeadlightsColour(vehicle, props.headlightColor) end
         if props.interiorColor then SetVehicleInteriorColour(vehicle, props.interiorColor) end
@@ -597,7 +640,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
         if props.modRightFender then SetVehicleMod(vehicle, 9, props.modRightFender, false) end
         if props.modRoof then SetVehicleMod(vehicle, 10, props.modRoof, false) end
         if props.modEngine then SetVehicleMod(vehicle, 11, props.modEngine, false) end
-        if props.modBrakes then SetVehicleMod(vehicle, 12, props.modBrakes, false) end        
+        if props.modBrakes then SetVehicleMod(vehicle, 12, props.modBrakes, false) end
 		if props.modTransmission then SetVehicleMod(vehicle, 13, props.modTransmission, false) end
         if props.modHorns then SetVehicleMod(vehicle, 14, props.modHorns, false) end
         if props.modSuspension then SetVehicleMod(vehicle, 15, props.modSuspension, false) end
@@ -639,7 +682,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
         if props.modLivery then SetVehicleMod(vehicle, 48, props.modLivery, false) SetVehicleLivery(vehicle, props.modLivery) end
         if props.modKit49 then SetVehicleMod(vehicle, 49, props.modKit49, false) end
         if props.liveryRoof then SetVehicleRoofLivery(vehicle, props.liveryRoof) end
-		if props.modDrift then SetDriftTyresEnabled(vehicle, true) end	
+		if props.modDrift then SetDriftTyresEnabled(vehicle, true) end
 		SetVehicleTyresCanBurst(vehicle, not props.modBProofTires)
     end
 end
