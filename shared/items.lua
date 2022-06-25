@@ -110,8 +110,8 @@ QBShared.Items = {
     -- Argent Cash
     ['cash'] 				         = {['name'] = 'cash', 				        ['label'] = 'Argent', 		            ['weight'] = 0, 		['type'] = 'item', 		['image'] = 'argent.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Argent Cash'},
 
-    ['spray'] 				         = {['name'] = 'spray', 				    ['label'] = 'Spray', 		            ['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Spray de peinture'},
-    ['spray_remover'] 				 = {['name'] = 'spray_remover', 			['label'] = 'Nettoyant pour spray', 	['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray_remover.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Nettoyant pour spray'},
+    ['spray'] 				         = {['name'] = 'spray', 				    ['label'] = 'Bombe de peinture', 		['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Spray de peinture'},
+    ['spray_remover'] 				 = {['name'] = 'spray_remover', 			['label'] = 'Nettoyant pour peinture', 	['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray_remover.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Nettoyant pour spray'},
 
     --Jakers-SuitCase
     ['suitcase'] 				 	 = {['name'] = 'suitcase', 			  	  		['label'] = 'SuitCase', 				['weight'] = 2000, 		['type'] = 'item', 		['image'] = 'suitcase.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Spare Clothes'},
@@ -226,7 +226,7 @@ QBShared.Items = {
 	-- jim-mining stuff --
 	["stone"] 		 	 			 = {["name"] = "stone",           				["label"] = "Pierre",	 				["weight"] = 4000, 	    ["type"] = "item", 		["image"] = "stone.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "Stone woo"},
 	["uncut_emerald"] 				 = {["name"] = "uncut_emerald", 			  	["label"] = "Emeraude non taillée", 	["weight"] = 100, 		["type"] = "item", 		["image"] = "uncut_emerald.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "A rough Emerald"},
-	["uncut_ruby"] 					 = {["name"] = "uncut_ruby", 			  	  	["label"] = "Rubis non taillé", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "uncut_ruby.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "A rough Ruby"},
+	["uncut_ruby"] 					 = {["name"] = "uncut_ruby", 			  	  	["label"] = "Rubis non taillé", 		["weight"] = 100, 		["type"] = "item", 		["image"] = "uncut_ruby.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "A rough Ruby"},
 	["uncut_diamond"] 				 = {["name"] = "uncut_diamond", 			  	["label"] = "Diamant non taillé", 		["weight"] = 100, 		["type"] = "item", 		["image"] = "uncut_diamond.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "A rough Diamond"},
 	["uncut_sapphire"] 				 = {["name"] = "uncut_sapphire", 			  	["label"] = "Saphir non taillé", 		["weight"] = 100, 		["type"] = "item", 		["image"] = "uncut_sapphire.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = "A rough Sapphire"},
 
@@ -333,10 +333,10 @@ QBShared.Items = {
 
     -- Theft and Jewelry --
     ['rolex'] 				 	 	 = {['name'] = 'rolex', 			  	  		['label'] = 'Montre en or', 			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'rolex.png', 			    ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A golden watch seems like the jackpot to me!'},
-    ['diamond_ring'] 				 = {['name'] = 'diamond_ring', 			  	  	['label'] = 'Bague en diamant',			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'diamond_ring.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A diamond ring seems like the jackpot to me!'},
-    ['diamond'] 				     = {['name'] = 'diamond', 			  	    	['label'] = 'Diamond', 		        	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'diamond.png', 		        ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A diamond seems like the jackpot to me!'},
-    ['goldchain'] 				 	 = {['name'] = 'goldchain', 			  	  	['label'] = 'Chaîne en or', 			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'goldchain.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A golden chain seems like the jackpot to me!'},
     ['10kgoldchain'] 				 = {['name'] = '10kgoldchain', 			  	  	['label'] = 'Chaîne en or 10k',			['weight'] = 2000, 		['type'] = 'item', 		['image'] = '10kgoldchain.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = '10 carat golden chain'},
+    --['diamond_ring'] 				 = {['name'] = 'diamond_ring', 			  	  	['label'] = 'Bague en diamant',			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'diamond_ring.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A diamond ring seems like the jackpot to me!'},
+    --['diamond'] 				     = {['name'] = 'diamond', 			  	    	['label'] = 'Diamond', 		        	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'diamond.png', 		        ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A diamond seems like the jackpot to me!'},
+    --['goldchain'] 				 	 = {['name'] = 'goldchain', 			  	['label'] = 'Chaîne en or', 			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'goldchain.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A golden chain seems like the jackpot to me!'},
 
 
     -- Weed --
