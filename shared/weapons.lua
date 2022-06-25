@@ -141,6 +141,7 @@ QBShared.Weapons = {
 	[`weapon_run_over_by_car`]		= {['name'] = 'weapon_run_over_by_car',		['label'] = 'Run Over - Vehicle',		['ammotype'] = nil,						['damagereason'] = 'Flattened / Ran over / Ran down'},
 	[`weapon_heli_crash`]			= {['name'] = 'weapon_heli_crash',			['label'] = 'Heli Crash',				['ammotype'] = nil,						['damagereason'] = 'Helicopter Crash'},
 	[`weapon_fire`]					= {['name'] = 'weapon_fire',				['label'] = 'Fire',						['ammotype'] = nil,						['damagereason'] = 'Torched / Flambeed / Barbecued'},
+    [`weapon_paintgun`]             = {['name'] = 'weapon_paintgun',            ['label'] = 'Fusil Paint-Ball',         ['ammotype'] = 'AMMO_PAINT',            ['damagereason'] = 'Peinturé'},
 
 	-- Animals
 	[`weapon_animal`]	= {['name'] = 'weapon_animal',	['label'] = 'Animal',	['ammotype'] = nil,	['damagereason'] = 'Mauled'},
