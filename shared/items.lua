@@ -153,17 +153,17 @@ QBShared.Items = {
 
 
 	--jim-mechanic --
-	["mechanic_tools"] 				= {["name"] = "mechanic_tools", 			["label"] = "Outils de mécano", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mechanic_tools.png", 		["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Needed for vehicle repairs"},
+	["mechanic_tools"] 				= {["name"] = "mechanic_tools", 			["label"] = "Kit de réparation", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mechanic_tools.png", 		["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Needed for vehicle repairs"},
 	["toolbox"] 					= {["name"] = "toolbox", 			 	  	["label"] = "Boîte à outils", 		    ["weight"] = 0, 		["type"] = "item", 		["image"] = "toolbox.png", 				["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Needed for Performance part removal"},
-	["ducttape"] 					= {["name"] = "ducttape", 			 	  	["label"] = "Scotch", 		       	    ["weight"] = 0, 		["type"] = "item", 		["image"] = "bodyrepair.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Good for quick fixes"},
+	["ducttape"] 					= {["name"] = "ducttape", 			 	  	["label"] = "Scotch", 		       	    ["weight"] = 0, 		["type"] = "item", 		["image"] = "bodyrepair.png", 			["unique"] = false, 	    ["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Good for quick fixes"},
 	["mechboard"] 					= {["name"] = "mechboard", 			 	  	["label"] = "Tableau mécanique", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mechboard.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 	--Performance
-	["turbo"] 		 	 		 	= {["name"] = "turbo", 						["label"] = "Turbo", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "turbo.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Who doesn't need a 65mm Turbo??"},
+	["turbo"] 		 	 		 	= {["name"] = "turbo", 						["label"] = "Turbo", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "turbo.png", 				["unique"] = false, 	    ["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Who doesn't need a 65mm Turbo??"},
 	["car_armor"] 					= {["name"] = "car_armor", 					["label"] = "Blindage", 			    ["weight"] = 0, 		["type"] = "item", 		["image"] = "armour.png", 				["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 
 	["nos"] 					    = {["name"] = "nos", 			 	  	  	["label"] = "Bouteille de NOS", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "nos.png", 				    ["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "A full bottle of NOS"},
-	["noscan"] 					    = {["name"] = "noscan", 			 	  	["label"] = "Bouteille de NOS vide", 	["weight"] = 0, 		["type"] = "item", 		["image"] = "noscan.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,  ["combinable"] = nil,   ["description"] = "An Empty bottle of NOS"},
+	["noscan"] 					    = {["name"] = "noscan", 			 	  	["label"] = "Bouteille de NOS vide", 	["weight"] = 0, 		["type"] = "item", 		["image"] = "noscan.png", 				["unique"] = false, 	    ["useable"] = false, 	["shouldClose"] = false,  ["combinable"] = nil,   ["description"] = "An Empty bottle of NOS"},
 
 	["engine1"] 				    = {["name"] = "engine1", 			 	  	["label"] = "Moteur par défaut",        ["weight"] = 0, 		["type"] = "item", 		["image"] = "shonen.png", 				["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
 	["engine2"] 				    = {["name"] = "engine2", 			 	  	["label"] = "Moteur V8",        	    ["weight"] = 0, 		["type"] = "item", 		["image"] = "v8engine.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
