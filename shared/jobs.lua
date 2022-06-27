@@ -230,6 +230,7 @@ QBShared.Jobs = {
             },
 			['2'] = {
                 name = 'Co-PDG',
+                isboss = true,
                 payment = 1250
             },
 			['3'] = {
