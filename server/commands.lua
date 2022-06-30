@@ -219,36 +219,36 @@ end, 'admin')
 
 -- Out of Character Chat
 
-QBCore.Commands.Add('ooc', 'OOC Chat Message', {}, false, function(source, args)
-    local message = table.concat(args, ' ')
-    local Players = QBCore.Functions.GetPlayers()
-    local Player = QBCore.Functions.GetPlayer(source)
-    local playerCoords = GetEntityCoords(GetPlayerPed(source))
-    for _, v in pairs(Players) do
-        if v == source then
-            TriggerClientEvent('chat:addMessage', v, {
-                color = { 0, 0, 255},
-                multiline = true,
-                args = {'OOC | '.. GetPlayerName(source), message}
-            })
-        elseif #(playerCoords - GetEntityCoords(GetPlayerPed(v))) < 20.0 then
-            TriggerClientEvent('chat:addMessage', v, {
-                color = { 0, 0, 255},
-                multiline = true,
-                args = {'OOC | '.. GetPlayerName(source), message}
-            })
-        elseif QBCore.Functions.HasPermission(v, 'admin') then
-            if QBCore.Functions.IsOptin(v) then
-                TriggerClientEvent('chat:addMessage', v, {
-                    color = { 0, 0, 255},
-                    multiline = true,
-                    args = {'Proxmity OOC | '.. GetPlayerName(source), message}
-                })
-                TriggerEvent('qb-log:server:CreateLog', 'ooc', 'OOC', 'white', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Message:** ' .. message, false)
-            end
-        end
-    end
-end, 'user')
+-- QBCore.Commands.Add('ooc', 'OOC Chat Message', {}, false, function(source, args)
+--     local message = table.concat(args, ' ')
+--     local Players = QBCore.Functions.GetPlayers()
+--     local Player = QBCore.Functions.GetPlayer(source)
+--     local playerCoords = GetEntityCoords(GetPlayerPed(source))
+--     for _, v in pairs(Players) do
+--         if v == source then
+--             TriggerClientEvent('chat:addMessage', v, {
+--                 color = { 0, 0, 255},
+--                 multiline = true,
+--                 args = {'OOC | '.. GetPlayerName(source), message}
+--             })
+--         elseif #(playerCoords - GetEntityCoords(GetPlayerPed(v))) < 20.0 then
+--             TriggerClientEvent('chat:addMessage', v, {
+--                 color = { 0, 0, 255},
+--                 multiline = true,
+--                 args = {'OOC | '.. GetPlayerName(source), message}
+--             })
+--         elseif QBCore.Functions.HasPermission(v, 'admin') then
+--             if QBCore.Functions.IsOptin(v) then
+--                 TriggerClientEvent('chat:addMessage', v, {
+--                     color = { 0, 0, 255},
+--                     multiline = true,
+--                     args = {'Proxmity OOC | '.. GetPlayerName(source), message}
+--                 })
+--                 TriggerEvent('qb-log:server:CreateLog', 'ooc', 'OOC', 'white', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Message:** ' .. message, false)
+--             end
+--         end
+--     end
+-- end, 'user')
 
 -- Me command
 
@@ -267,3 +267,38 @@ QBCore.Commands.Add('me', 'Show local message', {{name = 'message', help = 'Mess
         end
     end
 end, 'user')
+
+
+QBCore.Commands.Add("deleteLicence", "Supprimer une licence (Admin Only)", {{name = "id", help = "Player id"}, {name = "license", help = "licence type"}}, true, function(source, args)
+    local src = source
+
+    local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+    if not SearchedPlayer then return end
+    local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
+    if not licenseTable[args[2]] then
+        TriggerClientEvent('QBCore:Notify', src, "This player don't have this licence", "error")
+        return
+    end
+    licenseTable[args[2]] = false
+    SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
+    TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Une licence vous à été enlevé", "error")
+    TriggerClientEvent('QBCore:Notify', src, "La licence à bien été enlevé", "success")
+
+end, 'admin')
+
+QBCore.Commands.Add("addlicense", "Ajouter une licence (Admin Only)", {{name = "id", help = "Player id"}, {name = "license", help = "licence type"}}, true, function(source, args)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+    if not SearchedPlayer then return end
+    local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
+    if licenseTable[args[2]] then
+        TriggerClientEvent('QBCore:Notify', src, "This player already have this license", "error")
+        return
+    end
+    licenseTable[args[2]] = true
+    SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
+    TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Vous avez obtenu une licence", "success")
+    TriggerClientEvent('QBCore:Notify', src, "C'est good mon reuf", "success")
+
+end, 'admin')
