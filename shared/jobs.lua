@@ -29,35 +29,35 @@ QBShared.Jobs = {
         },
 		grades = {
             ['0'] = {
-                name = 'Cadet',
+                name = 'Stagiaire',
                 payment = 1000
             },
 			['1'] = {
-                name = 'Agent',
+                name = 'Cadet',
                 payment = 1100
             },
 			['2'] = {
-                name = 'Sous Officier',
+                name = 'Adjoint de sécurité',
                 payment = 1200
             },
 			['3'] = {
-                name = 'Officier',
+                name = 'Gardien de la paix',
                 payment = 1300
             },
 			['4'] = {
-                name = 'Officier supérieur',
+                name = 'Brigadier',
                 payment = 1400
             },
 			['5'] = {
-                name = 'Sergent',
+                name = 'Brigadier-Chef',
                 payment = 1500
             },
 			['6'] = {
-                name = 'Sergent Chef',
+                name = 'Sergent',
                 payment = 1600
             },
 			['7'] = {
-                name = 'Sergent Instructeur',
+                name = 'Sergent-Chef',
                 payment = 1700
             },
 			['8'] = {
@@ -65,19 +65,19 @@ QBShared.Jobs = {
                 payment = 1900
             },
 			['9'] = {
-                name = 'Adjudant chef',
+                name = 'Adjudant-Chef',
                 payment = 2100
             },
 			['10'] = {
-                name = 'Sous Lieutenant',
+                name = 'Major',
                 payment = 2300
             },
 			['11'] = {
-                name = 'Lieutenant',
+                name = 'Sous-Lieutenant',
                 payment = 2500
             },
 			['12'] = {
-                name = 'Lieutenant Major',
+                name = 'Lieutenant',
                 payment = 2700
             },
 			['13'] = {
