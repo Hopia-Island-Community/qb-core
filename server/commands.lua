@@ -83,10 +83,10 @@ QBCore.Commands.Add('tpm', 'TP To Marker (Admin Only)', {}, false, function(sour
     TriggerClientEvent('QBCore:Command:GoToMarker', source)
 end, 'admin')
 
-QBCore.Commands.Add('togglepvp', 'Toggle PVP on the server (Admin Only)', {}, false, function()
+QBCore.Commands.Add('togglepvp', 'Toggle PVP on the server (God Only)', {}, false, function()
     QBConfig.Server.PVP = not QBConfig.Server.PVP
     TriggerClientEvent('QBCore:Client:PvpHasToggled', -1, QBConfig.Server.PVP)
-end, 'admin')
+end, 'god')
 
 -- Permissions
 
@@ -112,7 +112,7 @@ end, 'god')
 
 -- Open & Close Server
 
-QBCore.Commands.Add('openserver', 'Open the server for everyone (Admin Only)', {}, false, function(source)
+QBCore.Commands.Add('openserver', 'Open the server for everyone (God Only)', {}, false, function(source)
     if not QBCore.Config.Server.Closed then
         TriggerClientEvent('QBCore:Notify', source, 'The server is already open', 'error')
         return
@@ -122,9 +122,9 @@ QBCore.Commands.Add('openserver', 'Open the server for everyone (Admin Only)', {
     else
         QBCore.Functions.Kick(source, 'You don\'t have permissions for this..', nil, nil)
     end
-end, 'admin')
+end, 'god')
 
-QBCore.Commands.Add('closeserver', 'Close the server for people without permissions (Admin Only)', { { name = 'reason', help = 'Reason for closing it (optional)' } }, false, function(source, args)
+QBCore.Commands.Add('closeserver', 'Close the server for people without permissions (God Only)', { { name = 'reason', help = 'Reason for closing it (optional)' } }, false, function(source, args)
     if QBCore.Config.Server.Closed then
         TriggerClientEvent('QBCore:Notify', source, 'The server is already closed', 'error')
         return
@@ -141,7 +141,7 @@ QBCore.Commands.Add('closeserver', 'Close the server for people without permissi
     else
         QBCore.Functions.Kick(source, 'You don\'t have permissions for this..', nil, nil)
     end
-end, 'admin')
+end, 'god')
 
 -- Vehicle
 
@@ -149,29 +149,29 @@ QBCore.Commands.Add('car', 'Spawn Vehicle (Admin Only)', { { name = 'model', hel
     TriggerClientEvent('QBCore:Command:SpawnVehicle', source, args[1])
 end, 'admin')
 
-QBCore.Commands.Add('dv', 'Delete Vehicle (Admin Only)', {}, false, function(source)
+QBCore.Commands.Add('dv', 'Delete Vehicle (Mod Only)', {}, false, function(source)
     TriggerClientEvent('QBCore:Command:DeleteVehicle', source)
-end, 'admin')
+end, 'mod')
 
 -- Money
 
-QBCore.Commands.Add('givemoney', 'Give A Player Money (Admin Only)', { { name = 'id', help = 'Player ID' }, { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' }, { name = 'amount', help = 'Amount of money' } }, true, function(source, args)
+QBCore.Commands.Add('givemoney', 'Give A Player Money (God Only)', { { name = 'id', help = 'Player ID' }, { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' }, { name = 'amount', help = 'Amount of money' } }, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
         Player.Functions.AddMoney(tostring(args[2]), tonumber(args[3]))
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'god')
 
-QBCore.Commands.Add('setmoney', 'Set Players Money Amount (Admin Only)', { { name = 'id', help = 'Player ID' }, { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' }, { name = 'amount', help = 'Amount of money' } }, true, function(source, args)
+QBCore.Commands.Add('setmoney', 'Set Players Money Amount (God Only)', { { name = 'id', help = 'Player ID' }, { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' }, { name = 'amount', help = 'Amount of money' } }, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
         Player.Functions.SetMoney(tostring(args[2]), tonumber(args[3]))
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'god')
 
 -- Job
 
@@ -187,7 +187,7 @@ QBCore.Commands.Add('setjob', 'Set A Players Job (Admin Only)', { { name = 'id',
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'mod')
 
 -- Gang
 
@@ -203,7 +203,7 @@ QBCore.Commands.Add('setgang', 'Set A Players Gang (Admin Only)', { { name = 'id
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'mod')
 
 -- Inventory (should be in qb-inventory?)
 
@@ -215,7 +215,7 @@ QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'mod')
 
 -- Out of Character Chat
 
@@ -284,7 +284,7 @@ QBCore.Commands.Add("deleteLicence", "Supprimer une licence (Admin Only)", {{nam
     TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Une licence vous à été enlevé", "error")
     TriggerClientEvent('QBCore:Notify', src, "La licence à bien été enlevé", "success")
 
-end, 'admin')
+end, 'mod')
 
 QBCore.Commands.Add("addlicense", "Ajouter une licence (Admin Only)", {{name = "id", help = "Player id"}, {name = "license", help = "licence type"}}, true, function(source, args)
     local src = source
@@ -301,4 +301,4 @@ QBCore.Commands.Add("addlicense", "Ajouter une licence (Admin Only)", {{name = "
     TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Vous avez obtenu une licence", "success")
     TriggerClientEvent('QBCore:Notify', src, "C'est good mon reuf", "success")
 
-end, 'admin')
+end, 'mod')
