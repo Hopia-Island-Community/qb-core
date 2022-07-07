@@ -154,23 +154,23 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Stagiaire',
                 payment = 50
             },
 			['1'] = {
-                name = 'Driver',
+                name = 'Chauffeur de taxi',
                 payment = 75
             },
 			['2'] = {
-                name = 'Event Driver',
+                name = 'Chauffeur de taxi Senior',
                 payment = 100
             },
 			['3'] = {
-                name = 'Sales',
+                name = 'Co-PDG',
                 payment = 125
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'PDG',
 				isboss = true,
                 payment = 150
             },
@@ -182,7 +182,7 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Driver',
+                name = 'Chauffeur de bus',
                 payment = 50
             },
 		},
