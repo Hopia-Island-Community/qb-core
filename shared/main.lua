@@ -72,8 +72,8 @@ end
 
 QBShared.StarterItems = {
     ['phone'] = { amount = 1, item = 'phone' },
-    ['sandwich'] = { amount = 3, item = 'sandwich' },
-    ['water_bottle'] = { amount = 3, item = 'water_bottle' },
+    ['eggsandwich'] = { amount = 3, item = 'sandwich' },
+    ['waterbottle'] = { amount = 3, item = 'water_bottle' },
     ['cash'] = { amount = 5000, item = 'cash' },
 }
 
