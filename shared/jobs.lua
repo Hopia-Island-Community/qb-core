@@ -183,7 +183,7 @@ QBShared.Jobs = {
 		grades = {
             ['0'] = {
                 name = 'Chauffeur de bus',
-                payment = 50
+                payment = 500
             },
 		},
 	},
