@@ -14,7 +14,7 @@ QBConfig.Money.UseInventory = true
 QBConfig.Money.item = "cash"
 
 QBConfig.Player = {}
-QBConfig.Player.MaxWeight = 120000 -- Max weight a player can carry (currently 120kg, written in grams)
+QBConfig.Player.MaxWeight = 200000 -- Max weight a player can carry (currently 120kg, written in grams)
 QBConfig.Player.MaxInvSlots = 41 -- Max inventory slots for a player
 QBConfig.Player.HungerRate = 4.2 -- Rate at which hunger goes down.
 QBConfig.Player.ThirstRate = 3.8 -- Rate at which thirst goes down.
