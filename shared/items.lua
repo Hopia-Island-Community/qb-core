@@ -170,6 +170,11 @@ QBShared.Items = {
     ["casino_member"]                = {["name"] = "casino_member",                 ["label"] = "Carte de membre du Casino",     ["weight"] = 500,       ["type"] = "item",         ["image"] = "casino_member.png",                 ["unique"] = true,         ["useable"] = false,     ["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino Member Card"},
     ["casino_vip"]                   = {["name"] = "casino_vip",                    ["label"] = "Carte de membre VIP du Casino", ["weight"] = 500,       ["type"] = "item",         ["image"] = "casino_vip.png",                     ["unique"] = true,         ["useable"] = false,     ["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino V.I.P Card"},
 
+    -- Sacs
+    ['backpack_small']				 = {['name'] = 'backpack_small',				['label'] = 'Petit sac',			['weight'] = 1000,		['type'] = 'item',		['image'] = 'backpack_small.png',		['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A small backpack to carry more items at once'},
+    ['backpack_medium']				 = {['name'] = 'backpack_medium',				['label'] = 'Sac moyen',			['weight'] = 1500,		['type'] = 'item',		['image'] = 'backpack_medium.png',		['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A medium backpack to carry more items at once'},
+    ['backpack_large']				 = {['name'] = 'backpack_large',				['label'] = 'Grand sac',			['weight'] = 2000,		['type'] = 'item',		['image'] = 'backpack_large.png',		['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A large backpack to carry more items at once'},
+
     -- METIERS --
     -- METIERS --
     -- METIERS --
