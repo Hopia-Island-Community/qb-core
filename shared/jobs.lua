@@ -178,12 +178,12 @@ QBShared.Jobs = {
 	},
      ['bus'] = {
 		label = 'Bus',
-		defaultDuty = false,
+		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
             ['0'] = {
                 name = 'Chauffeur de bus',
-                payment = 500
+                payment = 200
             },
 		},
 	},
