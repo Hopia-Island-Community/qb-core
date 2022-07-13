@@ -152,7 +152,7 @@ QBShared.Items = {
     ['fitbit'] 			 	 	 	 = {['name'] = 'fitbit', 			  			['label'] = 'Apple Watch',			    ['weight'] = 500, 		['type'] = 'item', 		['image'] = 'fitbit.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'I like fitbit'},
     ['radioscanner'] 			 	 = {['name'] = 'radioscanner', 			  		['label'] = 'Scanner radio', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'radioscanner.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'With this you can get some police alerts. Not 100% effective however'},
     ['pinger'] 			 			 = {['name'] = 'pinger', 						['label'] = 'Antenne', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'pinger.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'With a pinger and your phone you can send out your location'},
-    ['cryptostick'] 			 	 = {['name'] = 'cryptostick', 			  		['label'] = 'USB Crypto',    			['weight'] = 200, 		['type'] = 'item', 		['image'] = 'cryptostick.png', 			['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Why would someone ever buy money that doesn\'t exist.. How many would it contain..?'},
+    --['cryptostick'] 			 	 = {['name'] = 'cryptostick', 			  		['label'] = 'USB Crypto',    			['weight'] = 200, 		['type'] = 'item', 		['image'] = 'cryptostick.png', 			['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Why would someone ever buy money that doesn\'t exist.. How many would it contain..?'},
 
 
     -- Firework Tools
