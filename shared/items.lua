@@ -317,6 +317,8 @@ QBShared.Items = {
     ["meatcoyote"] 		 			 = {["name"] = "meatcoyote",       	    	    ["label"] = "Peau de coyote",	 		["weight"] = 100, 		["type"] = "item", 		["image"] = "coyotepelt.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Coyote Pelt"},
     ["huntingbait"] 		 		 = {["name"] = "huntingbait",       	        ["label"] = "Appât de chasse",	 		["weight"] = 150, 		["type"] = "item", 		["image"] = "huntingbait.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Hunting Bait"},
 
+    ["diving_gear"] 		 		 = {["name"] = "diving_gear",       	        ["label"] = "Tenue de plongée",	 		["weight"] = 2500, 		["type"] = "item", 		["image"] = "diving_gear.png", 			["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Tenue de plongée"},
+
     -- FISHING ------------
 
     -- Poissons ordinaires --
@@ -334,7 +336,7 @@ QBShared.Items = {
 
     -- Trash Items
     ['fishingtin'] 			 	 	 = {['name'] = 'fishingtin', 				    ['label'] = 'Cannette rouillée', 		['weight'] = 700, 		['type'] = 'item', 		['image'] = 'canette_rouillee.png', 	['unique'] = false,    ['useable'] = false, 	['shouldClose'] = false,	 ['combinable'] = nil,   ['description'] = 'Une cannette rouillée.. voila..'},
-    ['fishingboot'] 			 	 = {['name'] = 'fishingboot', 				    ['label'] = 'Vieille chaussure', 		['weight'] = 700, 		['type'] = 'item', 		['image'] = 'vieille_chaussure.png', 	['unique'] = false,    ['useable'] = false, 	['shouldClose'] = false,	 ['combinable'] = nil,   ['description'] = 'Une vieille chaussure ! trop cool..'},
+    --['fishingboot'] 			 	 = {['name'] = 'fishingboot', 				    ['label'] = 'Vieille chaussure', 		['weight'] = 700, 		['type'] = 'item', 		['image'] = 'vieille_chaussure.png', 	['unique'] = false,    ['useable'] = false, 	['shouldClose'] = false,	 ['combinable'] = nil,   ['description'] = 'Une vieille chaussure ! trop cool..'},
 
     -- Gear
     ['fishbait'] 			     	 = {['name'] = 'fishbait', 					    ['label'] = 'Appât de pêche', 			['weight'] = 400, 		['type'] = 'item', 		['image'] = 'appat_de_peche.png', 		['unique'] = false,    ['useable'] = true, 	   ['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Un joli petit appât pour attraper de la poiscaille'},
