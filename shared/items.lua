@@ -319,6 +319,16 @@ QBShared.Items = {
 
     ["diving_gear"] 		 		 = {["name"] = "diving_gear",       	        ["label"] = "Tenue de plongée",	 		["weight"] = 2500, 		["type"] = "item", 		["image"] = "diving_gear.png", 			["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Tenue de plongée"},
 
+    -- Main script items
+    ["medickeycard"] 				 = {["name"] = "medickeycard", 			  		["label"] = "Medical Keycard", 		   ["weight"] = 10, 	["type"] = "item", 		["image"] = "medickeycard.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "A medical key card? I wonder what this opens!"},
+    ["documenttube"] 				 = {["name"] = "documenttube", 			  		["label"] = "Document Tube", 		   ["weight"] = 1000, 	["type"] = "item", 		["image"] = "documenttube.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "A airtight document tube, could contain anything."},
+    ["jewellerybag"] 				 = {["name"] = "jewellerybag", 			  		["label"] = "Jewellery Bag", 		   ["weight"] = 500, 	["type"] = "item", 		["image"] = "jewellerybag.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "A jewellery bag, anything good inside?"},
+    -- Junk items
+    ["ruineddocuments"] 			 = {["name"] = "ruineddocuments", 			  	["label"] = "Ruined Documents", 	   ["weight"] = 100, 	["type"] = "item", 		["image"] = "ruineddocuments.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "Ruined documents.. These are worthless."},
+    ["rolex_fake"] 			 		 = {["name"] = "rolex_fake", 			  		["label"] = "Fake Rolex", 		   	   ["weight"] = 100, 	["type"] = "item", 		["image"] = "rolex_fake.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "Would be nice if it was real.."},
+    ["goldchain_fake"] 			 	 = {["name"] = "goldchain_fake", 			  	["label"] = "Fake Goldchain", 		   ["weight"] = 100, 	["type"] = "item", 		["image"] = "goldchain_fake.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "Ruined documents.. These are worthless."},
+    ["inactivekeycard"] 			 = {["name"] = "inactivekeycard", 			  	["label"] = "De-Activated Keycar", 	   ["weight"] = 10, 	["type"] = "item", 		["image"] = "inactivekeycard.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   	["description"] =  "Ruined documents.. These are worthless."},
+
     -- FISHING ------------
 
     -- Poissons ordinaires --
