@@ -71,10 +71,9 @@ function QBShared.SetDefaultVehicleExtras(vehicle, config)
 end
 
 QBShared.StarterItems = {
-    ['phone'] = { amount = 1, item = 'phone' },
     ['eggsandwich'] = { amount = 3, item = 'sandwich' },
     ['waterbottle'] = { amount = 3, item = 'water' },
-    ['cash'] = { amount = 5000, item = 'cash' },
+    ['cash'] = { amount = 10000, item = 'cash' },
 }
 
 QBShared.MaleNoGloves = {
