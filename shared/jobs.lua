@@ -416,6 +416,26 @@ QBShared.Jobs = {
             },
         },
 	},
+    ['casino'] = {
+        label = 'Casino Hopia',
+        defaultDuty = false,
+        offDutyPay = true,
+        grades = {
+            ['0'] = {
+                name = 'Employé',
+                payment = 250
+            },
+            ['1'] = {
+                name = 'Co-PDG',
+                payment = 1
+            },
+            ['2'] = {
+                name = 'PDG',
+                isboss = true,
+                payment = 1
+            },
+        },
+    },
     ['lsfd'] = {
         label = 'lsfd',
         defaultDuty = false,
