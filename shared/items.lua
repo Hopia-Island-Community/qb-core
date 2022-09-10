@@ -129,7 +129,7 @@ QBShared.Items = {
     ['spray_remover'] 				 = {['name'] = 'spray_remover', 			['label'] = 'Nettoyant pour peinture', 	['weight'] = 100, 		['type'] = 'item', 		['image'] = 'spray_remover.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Nettoyant pour spray'},
 
     --Jakers-SuitCase
-    ['suitcase'] 				 	 = {['name'] = 'suitcase', 			  	  		['label'] = 'SuitCase', 				['weight'] = 2000, 		['type'] = 'item', 		['image'] = 'suitcase.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Spare Clothes'},
+    ['suitcase'] 				 	 = {['name'] = 'suitcase', 			  	  		['label'] = 'SuitCase', 				['weight'] = 2000, 		['type'] = 'item', 		['image'] = 'weapon_briefcase.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Spare Clothes'},
 
 
     -- EMS
@@ -747,60 +747,60 @@ QBShared.Items = {
         ["label"] = "Bière du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "budweiser.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Beer"
+        ["description"] = "Une binch pour te porter chance"
     },
     ["casino_burger"] = {
         ["name"] = "casino_burger",
         ["label"] = "Burger du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "burger.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Burger"
+        ["description"] = "Un gros burger de fatos"
     },
     ["casino_chips"] = {
         ["name"] = "casino_chips",
         ["label"] = "Jetons du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "casinochips.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Chips"
+        ["description"] = "Les jetons du Casino"
     },
     ["casino_coffee"] = {
         ["name"] = "casino_coffee",
         ["label"] = "Café du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "coffee.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Coffee"
+        ["description"] = "Un café réconfortant pour les pertes pécuniaires"
     },
     ["casino_coke"] = {
         ["name"] = "casino_coke",
         ["label"] = "Coca du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "cocacola.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Kofola"
+        ["description"] = "Coca à la coca ?"
     },
     ["casino_donut"] = {
         ["name"] = "casino_donut",
@@ -816,10 +816,10 @@ QBShared.Items = {
     },
     ["casino_ego_chaser"] = {
         ["name"] = "casino_ego_chaser",
-        ["label"] = "Casino Ego Chaser",
+        ["label"] = "Barre Hershey du Casino",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "hersheysbar.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
@@ -836,26 +836,26 @@ QBShared.Items = {
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Lucky Potion"
+        ["description"] = "Potion de chance"
     },
     ["casino_psqs"] = {
         ["name"] = "casino_psqs",
         ["label"] = "Casino Ps & Qs",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "mandms.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
         ["combinable"] = nil,
-        ["description"] = "Casino Ps & Qs"
+        ["description"] = "Ps & Qs du Casino"
     },
     ["casino_sandwitch"] = {
         ["name"] = "casino_sandwitch",
         ["label"] = "Casino Sandwitch",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "sandwich.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
@@ -867,7 +867,7 @@ QBShared.Items = {
         ["label"] = "Casino Sprite",
         ["weight"] = 0,
         ["type"] = "item",
-        ["image"] = "casinoitem.png",
+        ["image"] = "pepsi.png",
         ["unique"] = true,
         ["useable"] = false,
         ["shouldClose"] = false,
