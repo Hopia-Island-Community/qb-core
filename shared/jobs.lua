@@ -471,4 +471,44 @@ QBShared.Jobs = {
             },
         },
     },
+    ['unicorn'] = {
+        label = 'Unicorn',
+        defaultDuty = false,
+        grades = {
+            ['0'] = {
+                name = 'Stagiaire',
+                payment = 300
+            },
+            ['1'] = {
+                name = 'Videur',
+                payment = 750
+            },
+            ['2'] = {
+                name = 'Danseur/seuse',
+                payment = 850
+            },
+            ['3'] = {
+                name = 'Barman',
+                payment = 950
+            },
+            ['4'] = {
+                name = 'DJ',
+                payment = 1050
+            },
+            ['5'] = {
+                name = 'Manageur',
+                payment = 1150
+            },
+            ['6'] = {
+                name = 'Co-Gérant',
+                isboss = true,
+                payment = 1500
+            },
+            ['7'] = {
+                name = 'Gérant',
+                isboss = true,
+                payment = 1500
+            },
+        },
+    },
 }
