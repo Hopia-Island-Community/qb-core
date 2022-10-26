@@ -4299,7 +4299,7 @@ QBShared.Vehicles = {
 		['model'] = 'luxor',
 		['price'] = 45000,
 		['category'] = 'planes',
-		['hash'] = `luxor`,
+_		['hash'] = `luxor`,
 		['shop'] = 'air',
 	},
 	['luxor2'] = {
@@ -4404,5 +4404,5 @@ QBShared.Vehicles = {
 }
 
 for _, v in pairs(QBShared.Vehicles) do
-	QBShared.VehicleHashes[v.hash] = v
+    QBShared.VehicleHashes[v.hash] = v
 end
