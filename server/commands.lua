@@ -122,7 +122,7 @@ end, 'admin')
 QBCore.Commands.Add('togglepvp', Lang:t("command.togglepvp.help"), {}, false, function()
     QBConfig.Server.PVP = not QBConfig.Server.PVP
     TriggerClientEvent('QBCore:Client:PvpHasToggled', -1, QBConfig.Server.PVP)
-end, 'admin')
+end, 'god')
 
 -- Permissions
 
@@ -159,7 +159,7 @@ QBCore.Commands.Add('openserver', Lang:t("command.openserver.help"), {}, false, 
     else
         QBCore.Functions.Kick(source, Lang:t("error.no_permission"), nil, nil)
     end
-end, 'admin')
+end, 'god')
 
 QBCore.Commands.Add('closeserver', Lang:t("command.closeserver.help"), {{ name = Lang:t("command.closeserver.params.reason.name"), help = Lang:t("command.closeserver.params.reason.help")}}, false, function(source, args)
     if QBCore.Config.Server.Closed then
@@ -179,7 +179,7 @@ QBCore.Commands.Add('closeserver', Lang:t("command.closeserver.help"), {{ name =
     else
         QBCore.Functions.Kick(source, Lang:t("error.no_permission"), nil, nil)
     end
-end, 'admin')
+end, 'god')
 
 -- Vehicle
 
@@ -189,7 +189,7 @@ end, 'admin')
 
 QBCore.Commands.Add('dv', Lang:t("command.dv.help"), {}, false, function(source)
     TriggerClientEvent('QBCore:Command:DeleteVehicle', source)
-end, 'admin')
+end, 'mod')
 
 -- Money
 
@@ -200,7 +200,7 @@ QBCore.Commands.Add('givemoney', Lang:t("command.givemoney.help"), { { name = La
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'god')
 
 QBCore.Commands.Add('setmoney', Lang:t("command.setmoney.help"), { { name = Lang:t("command.setmoney.params.id.name"), help = Lang:t("command.setmoney.params.id.help") }, { name = Lang:t("command.setmoney.params.moneytype.name"), help = Lang:t("command.setmoney.params.moneytype.help") }, { name = Lang:t("command.setmoney.params.amount.name"), help = Lang:t("command.setmoney.params.amount.help") } }, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
@@ -209,7 +209,7 @@ QBCore.Commands.Add('setmoney', Lang:t("command.setmoney.help"), { { name = Lang
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'god')
 
 -- Job
 
@@ -225,7 +225,7 @@ QBCore.Commands.Add('setjob', Lang:t("command.setjob.help"), { { name = Lang:t("
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'mod')
 
 -- Gang
 
@@ -241,7 +241,7 @@ QBCore.Commands.Add('setgang', Lang:t("command.setgang.help"), { { name = Lang:t
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'admin')
+end, 'mod')
 
 -- Out of Character Chat
 
@@ -293,3 +293,38 @@ QBCore.Commands.Add('me', Lang:t("command.me.help"), {{name = Lang:t("command.me
         end
     end
 end, 'user')
+
+
+QBCore.Commands.Add("deleteLicence", "Supprimer une licence (Admin Only)", {{name = "id", help = "Player id"}, {name = "license", help = "licence type"}}, true, function(source, args)
+    local src = source
+
+    local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+    if not SearchedPlayer then return end
+    local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
+    if not licenseTable[args[2]] then
+        TriggerClientEvent('QBCore:Notify', src, "This player don't have this licence", "error")
+        return
+    end
+    licenseTable[args[2]] = false
+    SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
+    TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Une licence vous à été enlevé", "error")
+    TriggerClientEvent('QBCore:Notify', src, "La licence à bien été enlevé", "success")
+
+end, 'mod')
+
+QBCore.Commands.Add("addlicense", "Ajouter une licence (Admin Only)", {{name = "id", help = "Player id"}, {name = "license", help = "licence type"}}, true, function(source, args)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+    if not SearchedPlayer then return end
+    local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
+    if licenseTable[args[2]] then
+        TriggerClientEvent('QBCore:Notify', src, "This player already have this license", "error")
+        return
+    end
+    licenseTable[args[2]] = true
+    SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
+    TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Vous avez obtenu une licence", "success")
+    TriggerClientEvent('QBCore:Notify', src, "C'est good mon reuf", "success")
+
+end, 'mod')

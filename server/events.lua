@@ -7,15 +7,15 @@ AddEventHandler('chatMessage', function(_, _, message)
     end
 end)
 
-AddEventHandler('playerDropped', function(reason)
-    local src = source
-    if not QBCore.Players[src] then return end
-    local Player = QBCore.Players[src]
-    TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red', '**' .. GetPlayerName(src) .. '** (' .. Player.PlayerData.license .. ') left..' ..'\n **Reason:** ' .. reason)
-    Player.Functions.Save()
-    QBCore.Player_Buckets[Player.PlayerData.license] = nil
-    QBCore.Players[src] = nil
-end)
+--AddEventHandler('playerDropped', function(reason)
+--    local src = source
+--    if not QBCore.Players[src] then return end
+--    local Player = QBCore.Players[src]
+--    TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red', '**' .. GetPlayerName(src) .. '** (' .. Player.PlayerData.license .. ') left..' ..'\n **Reason:** ' .. reason)
+--    Player.Functions.Save()
+--    QBCore.Player_Buckets[Player.PlayerData.license] = nil
+ --   QBCore.Players[src] = nil
+--end)
 
 -- Player Connecting
 
@@ -183,9 +183,11 @@ RegisterNetEvent('QBCore:ToggleDuty', function()
     if not Player then return end
     if Player.PlayerData.job.onduty then
         Player.Functions.SetJobDuty(false)
+        Citizen.Trace("is on duty: false\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.off_duty'))
     else
         Player.Functions.SetJobDuty(true)
+        Citizen.Trace("is on duty: true\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.on_duty'))
     end
     TriggerClientEvent('QBCore:Client:SetDuty', src, Player.PlayerData.job.onduty)
