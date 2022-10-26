@@ -177,6 +177,7 @@ function QBCore.Player.Logout(source)
     TriggerClientEvent('QBCore:Client:OnPlayerUnload', source)
     TriggerEvent('QBCore:Server:OnPlayerUnload', source)
     TriggerClientEvent('QBCore:Player:UpdatePlayerData', source)
+    QBCore.Player.Save(source)
     Wait(200)
     QBCore.Players[source] = nil
 end
@@ -402,10 +403,10 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline)
         moneytype = moneytype:lower()
         amount = tonumber(amount)
         if amount < 0 then return false end
-        
+
         if not self.PlayerData.money[moneytype] then return false end
         local difference = amount - self.PlayerData.money[moneytype]
-        
+
         if (QBConfig.Money.UseInventory and moneytype == "cash") then
             self.Functions.RemoveItem(QBConfig.Money.item, self.Functions.GetMoney(moneytype))
             self.Functions.AddItem(QBConfig.Money.item, amount)
