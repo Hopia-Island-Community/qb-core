@@ -9,7 +9,7 @@ QBShared.Vehicles = {
 		['model'] = 'asbo',
 		['price'] = 4500,
 		['category'] = 'compacts',
-		['hash'] = `asbo`,
+		['hash'] = "asbo",
 		['shop'] = 'pdm',
 	},
 	['blista'] = {
@@ -18,7 +18,7 @@ QBShared.Vehicles = {
 		['model'] = 'blista',
 		['price'] = 6000,
 		['category'] = 'compacts',
-		['hash'] = `blista`,
+		['hash'] = "blista",
 		['shop'] = 'pdm',
 	},
 	['brioso'] = {
@@ -4290,7 +4290,7 @@ QBShared.Vehicles = {
 		['model'] = 'duster',
 		['price'] = 45000,
 		['category'] = 'planes',
-		['hash'] = `duster`,
+		['hash'] = 'duster',
 		['shop'] = 'air',
 	},
 	['luxor'] = {
@@ -4299,7 +4299,7 @@ QBShared.Vehicles = {
 		['model'] = 'luxor',
 		['price'] = 45000,
 		['category'] = 'planes',
-_		['hash'] = `luxor`,
+		['hash'] = 'luxor',
 		['shop'] = 'air',
 	},
 	['luxor2'] = {
