@@ -781,6 +781,13 @@ QBShared.Items = {
 
     ['boombox']                = {['name'] = 'boombox', 	            ['label'] = 'Boombox',	['weight'] = 250, 		['type'] = 'item', 		['image'] = 'boombox.png',    ['unique'] = false, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Default/Black Weapon Tint'},
 
+    -- Halloween --
+    ['pumpkin']                      = {['name'] = 'pumpkin', 	                    ['label'] = 'Citrouille',		        ['weight'] = 1, 		['type'] = 'item', 		['image'] = 'pumpkin.png', 	    ['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Une citrouille hihihi'},
+    ['bonbons']                      = {['name'] = 'bonbons', 	                    ['label'] = 'Bonbons',		            ['weight'] = 1, 		['type'] = 'item', 		['image'] = 'bonbons.png', 	    ['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Des bonbons hihihi'},
+    ['ticketcustom']                 = {['name'] = 'ticketcustom', 	                ['label'] = 'Ticket full custom',		['weight'] = 1, 		['type'] = 'item', 		['image'] = 'rentalpapers.png', ['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Ceci est un ticket de full custom, bravo'},
+    ['ticketlurcher']                = {['name'] = 'ticketlurcher', 	            ['label'] = 'Ticket pour une Lurcher',	['weight'] = 1, 		['type'] = 'item', 		['image'] = 'rentalpapers.png', ['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Ceci est un ticket de Lurcher, bravo'},
+
+
     ["casino_beer"] = {
         ["name"] = "casino_beer",
         ["label"] = "Bière du Casino",
