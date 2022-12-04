@@ -12,9 +12,9 @@ function QBCore.Functions.GetCoords(entity)
     return vector4(coords.x, coords.y, coords.z, GetEntityHeading(entity))
 end
 
-function QBCore.Functions.HasItem(items, amount)
-    return exports['qb-inventory']:HasItem(items, amount)
-end
+--function QBCore.Functions.HasItem(items, amount)
+--    return exports['qb-inventory']:HasItem(items, amount)
+--end
 
 -- Utility
 
