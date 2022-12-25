@@ -406,10 +406,10 @@ end
 
 -- Utility functions
 
-function QBCore.Functions.HasItem(source, items, amount)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:HasItem(source, items, amount)
-end
+--function QBCore.Functions.HasItem(source, items, amount)
+--    if GetResourceState('qb-inventory') == 'missing' then return end
+--    return exports['qb-inventory']:HasItem(source, items, amount)
+--end
 
 function QBCore.Functions.Notify(source, text, type, length)
     TriggerClientEvent('QBCore:Notify', source, text, type, length)

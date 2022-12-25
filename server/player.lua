@@ -87,6 +87,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.charinfo.account = PlayerData.charinfo.account or QBCore.Functions.CreateAccountNumber()
     -- Metadata
     PlayerData.metadata = PlayerData.metadata or {}
+    PlayerData.metadata['drugxp'] = PlayerData.metadata['drugxp'] or 0 -- Added for drugs
     PlayerData.metadata['hunger'] = PlayerData.metadata['hunger'] or 100
     PlayerData.metadata['thirst'] = PlayerData.metadata['thirst'] or 100
     PlayerData.metadata['stress'] = PlayerData.metadata['stress'] or 0
@@ -316,22 +317,6 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline)
         return exports['core_inventory']:getItems(inventory, item)
     end
 
-    function self.Functions.HasItem(item, inventory, count)
-        inventory = inventory or 'content-' ..  self.PlayerData.citizenid
-        local c = count or 1
-        local inv = exports['core_inventory']:getInventory(inventory)
-        local HasItem = false
-        for k,v in pairs(inv) do
-            if v.name == item then
-                c = c - 1
-            end
-            if c < 1 then
-                HasItem = true
-                break
-            end
-        end
-        return HasItem
-    end
 
     function self.Functions.SetInventory(items, dontUpdateChat)
         self.PlayerData.items = items
