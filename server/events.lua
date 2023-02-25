@@ -150,6 +150,19 @@ end)
 
 -- Player
 
+RegisterNetEvent('QBCore:Server:SetMetaData', function(meta, data)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    if not Player then return end
+    if meta == 'hunger' or meta == 'thirst' then
+        if data > 100 then
+            data = 100
+        end
+    end
+    Player.Functions.SetMetaData(meta, data)
+    TriggerClientEvent('hud:client:UpdateNeeds', src, Player.PlayerData.metadata['hunger'], Player.PlayerData.metadata['thirst'])
+end)
+
 RegisterNetEvent('QBCore:UpdatePlayer', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -174,9 +187,11 @@ RegisterNetEvent('QBCore:ToggleDuty', function()
     if not Player then return end
     if Player.PlayerData.job.onduty then
         Player.Functions.SetJobDuty(false)
+        Citizen.Trace("is on duty: false\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.off_duty'))
     else
         Player.Functions.SetJobDuty(true)
+        Citizen.Trace("is on duty: true\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.on_duty'))
     end
     TriggerClientEvent('QBCore:Client:SetDuty', src, Player.PlayerData.job.onduty)
