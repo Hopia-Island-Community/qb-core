@@ -122,7 +122,7 @@ end, 'admin')
 QBCore.Commands.Add('togglepvp', Lang:t("command.togglepvp.help"), {}, false, function()
     QBConfig.Server.PVP = not QBConfig.Server.PVP
     TriggerClientEvent('QBCore:Client:PvpHasToggled', -1, QBConfig.Server.PVP)
-end, 'god')
+end, 'admin')
 
 -- Permissions
 
@@ -159,7 +159,7 @@ QBCore.Commands.Add('openserver', Lang:t("command.openserver.help"), {}, false, 
     else
         QBCore.Functions.Kick(source, Lang:t("error.no_permission"), nil, nil)
     end
-end, 'god')
+end, 'admin')
 
 QBCore.Commands.Add('closeserver', Lang:t("command.closeserver.help"), {{ name = Lang:t("command.closeserver.params.reason.name"), help = Lang:t("command.closeserver.params.reason.help")}}, false, function(source, args)
     if QBCore.Config.Server.Closed then
@@ -179,7 +179,7 @@ QBCore.Commands.Add('closeserver', Lang:t("command.closeserver.help"), {{ name =
     else
         QBCore.Functions.Kick(source, Lang:t("error.no_permission"), nil, nil)
     end
-end, 'god')
+end, 'admin')
 
 -- Vehicle
 
@@ -189,7 +189,7 @@ end, 'admin')
 
 QBCore.Commands.Add('dv', Lang:t("command.dv.help"), {}, false, function(source)
     TriggerClientEvent('QBCore:Command:DeleteVehicle', source)
-end, 'mod')
+end, 'admin')
 
 -- Money
 
@@ -200,7 +200,7 @@ QBCore.Commands.Add('givemoney', Lang:t("command.givemoney.help"), { { name = La
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'god')
+end, 'admin')
 
 QBCore.Commands.Add('setmoney', Lang:t("command.setmoney.help"), { { name = Lang:t("command.setmoney.params.id.name"), help = Lang:t("command.setmoney.params.id.help") }, { name = Lang:t("command.setmoney.params.moneytype.name"), help = Lang:t("command.setmoney.params.moneytype.help") }, { name = Lang:t("command.setmoney.params.amount.name"), help = Lang:t("command.setmoney.params.amount.help") } }, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
@@ -209,7 +209,7 @@ QBCore.Commands.Add('setmoney', Lang:t("command.setmoney.help"), { { name = Lang
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'god')
+end, 'admin')
 
 -- Job
 
@@ -225,7 +225,7 @@ QBCore.Commands.Add('setjob', Lang:t("command.setjob.help"), { { name = Lang:t("
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'mod')
+end, 'admin')
 
 -- Gang
 
@@ -241,7 +241,7 @@ QBCore.Commands.Add('setgang', Lang:t("command.setgang.help"), { { name = Lang:t
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
-end, 'mod')
+end, 'admin')
 
 -- Out of Character Chat
 
