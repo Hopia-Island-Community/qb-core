@@ -187,11 +187,9 @@ RegisterNetEvent('QBCore:ToggleDuty', function()
     if not Player then return end
     if Player.PlayerData.job.onduty then
         Player.Functions.SetJobDuty(false)
-        Citizen.Trace("is on duty: false\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.off_duty'))
     else
         Player.Functions.SetJobDuty(true)
-        Citizen.Trace("is on duty: true\n");
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.on_duty'))
     end
     TriggerClientEvent('QBCore:Client:SetDuty', src, Player.PlayerData.job.onduty)
